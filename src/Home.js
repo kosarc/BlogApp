@@ -8,24 +8,44 @@ function Home() {
       title: "About React",
       body: "some text about React...",
       author: "Matt",
-      id: 1,
+      id: 0,
     },
     {
       title: "About React Native",
       body: "some text about React Native...",
       author: "Mike",
-      id: 2,
+      id: 1,
     },
     {
       title: "About React Hooks",
       body: " some text about React Hooks...",
       author: "Serhii",
+      id: 2,
+    },
+    {
+      title: "About React Native Navigation",
+      body: "some text about React Native navigation...",
+      author: "Mike",
       id: 3,
     },
   ]);
+  let sortedBlog = blogs.filter((blogs) => blogs.author !== "Mike");
+  const handleClick = (index) => {
+    console.log(blogs[index]);
+    setBlogs((prevBlog) => {
+      return prevBlog.filter((item) => item.id !== index);
+    });
+  };
+
   return (
     <div className="Home">
-      <BlogList blogs={blogs} />
+      All authors:
+      <BlogList blogs={blogs} handleClick={handleClick} />
+      <br />
+      <div>
+        Filtered authors:
+        <BlogList blogs={sortedBlog} handleClick={handleClick} />
+      </div>
     </div>
   );
 }
