@@ -30,10 +30,9 @@ function Home() {
     },
   ]);
   let sortedBlog = blogs.filter((blogs) => blogs.author !== "Mike");
-  const handleClick = (index) => {
-    console.log(blogs[index]);
+  const handleClick = (itemIndex) => {
     setBlogs((prevBlog) => {
-      return prevBlog.filter((item) => item.id !== index);
+      return prevBlog.filter((item) => item.indexOf(blogs) !== itemIndex);
     });
   };
 
