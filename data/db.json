@@ -1,0 +1,28 @@
+{
+  "blog": [
+    {
+      "title": "About React",
+      "body": "some text about React...",
+      "author": "Matt",
+      "id": 0
+    },
+    {
+      "title": "About React Native",
+      "body": "some text about React Native...",
+      "author": "Mike",
+      "id": 1
+    },
+    {
+      "title": "About React Hooks",
+      "body": " some text about React Hooks...",
+      "author": "Serhii",
+      "id": 2
+    },
+    {
+      "title": "About React Native Navigation",
+      "body": "some text about React Native navigation...",
+      "author": "Mike",
+      "id": 3
+    }
+  ]
+}
