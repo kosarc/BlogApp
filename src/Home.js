@@ -1,36 +1,21 @@
-import { useState, useEffect } from "react";
-import BlogList from "./BlogList";
 import "./styles/Home.css";
+import useFetch from "./useFetch";
+import Filter from "./Filter";
 
 function Home() {
-  const [blogs, setBlogs] = useState(null);
+  const { error, data, isLoaded } = useFetch("http://localhost:8000/blog");
 
-  const handleClick = (itemIndex) => {
-    setBlogs((prevBlog) => {
-      return prevBlog.filter((item) => item.indexOf(blogs) !== itemIndex);
-    });
-  };
-  useEffect(() => {
-    fetch("http://localhost:8000/blog")
-      .then((response) => response.json())
-      .then((data) => setBlogs(data));
-  }, []);
-
-  if (blogs) {
-    let sortedBlog = blogs.filter((blogs) => blogs.author !== "Mike");
-    return (
-      <div className="Home">
-        All authors:
-        <BlogList blogs={blogs} handleClick={handleClick} />
-        <br />
+  return (
+    <div className="Home">
+      {error && <div>{error}</div>}
+      {isLoaded && <div>Loading...</div>}
+      {data && (
         <div>
-          Filtered authors:
-          <BlogList blogs={sortedBlog} handleClick={handleClick} />
+          All authors:
+          <Filter blogs={data} />
         </div>
-      </div>
-    );
-  } else {
-    return null;
-  }
+      )}
+    </div>
+  );
 }
 export default Home;
