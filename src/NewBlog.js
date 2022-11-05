@@ -14,7 +14,6 @@ const NewBlog = () => {
         <label>Blog Title:</label>
         <input
           type="text"
-          placeholder="enter a title"
           required
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -23,7 +22,6 @@ const NewBlog = () => {
         <textarea
           type="text"
           required
-          placeholder="enter a body"
           value={body}
           onChange={(e) => setBody(e.target.value)}
         />
@@ -37,7 +35,7 @@ const NewBlog = () => {
               );
             })}
         </select>
-        <input type="submit" value="Add Blog" />
+        <input type="submit" value="Add Blog" className="button" />
       </form>
     </div>
   );
