@@ -17,12 +17,6 @@
       "body": " some text about React Hooks...",
       "author": "Serhii",
       "id": 2
-    },
-    {
-      "title": "About React Native Navigation",
-      "body": "some text about React Native navigation...",
-      "author": "Mike",
-      "id": 3
     }
   ]
 }
